@@ -1,0 +1,31 @@
+// ==========================================================================
+// Plugins e Frameworks de SASS
+// ==========================================================================
+
+@import 'bourbon';
+// Change the grid settings
+$max-width: 1000px;
+@import 'neat';
+
+// ==========================================================================
+// Resets e Configurações básicas
+// ==========================================================================
+
+@import 'partials/config_base';
+@import 'partials/config_variaveis';
+
+// ==========================================================================
+// CSS de plugins (como sliders e outros)
+// ==========================================================================
+
+// @import 'owl.carousel.css';
+// @import 'owl.theme.css';
+// @import 'owl.transitions.css';
+// @import 'dropzone.css';
+
+// ==========================================================================
+// Parciais do Projeto
+// ==========================================================================
+
+@import 'partials/part_estrutura';
+@import 'partials/part_home';

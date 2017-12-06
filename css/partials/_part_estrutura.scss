@@ -1,0 +1,1291 @@
+/* ==========================================================================
+   ESTRUTURA BÁSICA
+   ========================================================================== */
+
+
+html, body{
+	width: 100%;
+	height: 100%;
+	font-family: $froboto;
+	position: relative;
+	font-size: $fzpadrao;
+	line-height: 1.4;
+	color: #000;
+	background-color: #fff;
+}
+
+body{
+	
+}
+
+.section{
+	width: 100%;
+	height: auto;
+	.container{
+		width: 98%;
+		max-width: $maxwidth;
+		margin: 0 auto;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		@media screen and (max-width: $mobile) {
+			width: 94%;
+		}
+	}
+}
+
+.hide{
+	display: none !important;
+}
+
+.desk{
+	display: block !important;
+	@media screen and (max-width: $mobile) {
+		display: none !important;
+	}
+}
+
+.resp{
+	display: none !important;
+	@media screen and (max-width: $mobile) {
+		display: block !important;
+	}
+}
+
+/*
+==========================================================================
+		TOPO
+========================================================================== 
+*/
+
+.section-topo{
+	height: 32px;
+	background-color: $cinzatopo;
+	.container{
+		position: relative;
+		@include outer-container;
+		padding-bottom: 0;
+		padding-top: 0;
+	}
+	.lista-social{
+		text-align: left;
+		li{
+			display: inline-block;
+			margin-right: 10px;
+			font-size: 18px;
+			height: 32px;
+			line-height: 32px;
+			color: $iconetopo;
+			&.inativo{
+				display: none;
+			}
+			img{
+				position: relative;
+				top: 4px;
+			}
+		}
+	}
+	.searchform{
+		position: absolute;
+		top: 4px;
+		right: 0;
+		@media screen and (max-width: $mobile) {
+		    display: none;
+		}
+		.fa-search{
+			position: absolute;
+			top: 2px;
+    		right: 4px;
+    		color: $iconetopo;
+		}
+		button{
+			position: absolute;
+			top: 0px;
+    		right: 0px;
+    		background-color: transparent;
+    		width: 25px;
+    		height: 100%;
+    		border: none;
+    		cursor: pointer;
+    		color: $iconetopo;
+		}
+	}
+}
+
+/*
+==========================================================================
+		MENU NAVEGAÇÃO
+========================================================================== 
+*/
+
+.section-header{
+	.container{
+		@include outer-container;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+	.header-logo{
+		@include span-columns(3);
+		a{
+			display: block;
+			width: auto;
+			img{
+				width: auto;
+				height: 140px;
+			}
+		}
+		@media screen and (max-width: $mobile) {
+			@include shift(1);
+			@include span-columns(3);  
+			a{
+				width: 100%;
+				img{
+					width: 100%;
+					height: auto;
+				}
+			}
+		}
+	}
+}
+
+.header-menu{
+	@include span-columns(9);
+	@include omega();
+	.header-menu-lista{
+		text-align: left;
+		li{
+			display: inline-block;
+			margin-right: 30px;
+			font-size: 14px;
+			line-height: 140px;
+			font-weight: bold;
+		}
+	}
+	@media screen and (max-width: $mobile) {
+	 	@include span-columns(8);
+	 	position: relative;
+	 	height: 80px;
+	 	
+	 	.header-menu-lista{
+	 		position: absolute;
+	    	top: 100%;
+	    	right: 0;
+	    	background-color: #fff;
+	    	width: 100%;
+	    	height: auto;
+	    	opacity: 0;
+		 	z-index: -1;
+		 	visibility: hidden;
+		 	@include transition(all 0.6s);
+	    	-webkit-box-shadow: -2px 2px 2px 0px rgba(0,0,0,0.3);
+			-moz-box-shadow: -2px 2px 2px 0px rgba(0,0,0,0.3);
+			box-shadow: -2px 2px 2px 0px rgba(0,0,0,0.3);
+	    	li{
+	    		display: block;
+	    		margin-right: 0;
+	    		line-height: 60px;
+	    		padding-left: 20px;
+	    	}
+	 	}
+	 	&.ativo .header-menu-lista{
+			opacity: 1;
+			z-index: 9999;
+			visibility: visible;
+
+	 	}
+	}
+}
+
+
+.bloco-burger{
+    display: none;
+    @media screen and (max-width: $mobile) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60px;
+        height: 60px;
+        display: block;
+    }
+    .burger-icon {
+        position: relative;
+        top: 20px;
+        left: 25px;
+        @include burger(25px, 3px, 5px, $azul);
+    }
+    &.is-active .burger-icon {
+        @include burger-to-cross;
+    }
+}
+
+/*
+==========================================================================
+		HOME: FOTOS
+========================================================================== 
+*/
+
+.section-fotos{
+	background-color: $azul;
+	.container-fotos{
+	    width: 100%;
+	    height: 80%;
+	    li{
+	    	width: 100%;
+	        height: 100%;
+	        img{
+	        	width: 100%;
+	        	height: auto;
+	        }
+	    }
+	    .owl-wrapper-outer {
+	        height: 100% !important;    
+	    }
+
+	    .owl-wrapper {
+	         height: 100%;   
+	    }
+
+	    .owl-item {
+	        height: 100%;
+	    }
+	    .owl-controls {
+	        width: 100%;
+	        position: absolute;
+	        bottom: 0;
+	        left: 0;
+	        z-index: 200;
+	    }
+	    .owl-controls .owl-pagination{
+	        position: relative;
+	        bottom: 10px;
+	        max-width: 1000px;
+	        margin: 0 auto;
+	        text-align: center;
+	    }
+	    .owl-controls .owl-page span {
+		    display: block;
+		    width: 16px;
+		    height: 16px;
+		    margin: 5px 7px;
+		    filter: Alpha(Opacity=50);
+		    opacity: 0.5;
+		    -webkit-border-radius: 20px;
+		    -moz-border-radius: 20px;
+		    border-radius: 20px;
+		    background: $laranja;
+		}
+	}
+}
+
+/*
+==========================================================================
+		HOME: THINK DO
+========================================================================== 
+*/
+
+.section-thinkdo{
+	background-color: $azul;
+	color: #000;
+	.container{
+		@include outer-container;
+		padding-top: 40px;
+		padding-bottom: 40px;
+		.home-titulo{
+			font-size: 68px;
+			font-family: 'politicaregular';
+			line-height: 1.4;
+			margin-bottom: 40px;
+			color: #fff;
+			@media screen and (max-width: $mobile) {
+			 	font-size: 36px;   
+			}
+		}
+		h3{
+			font-size: 22px;
+			font-weight: bold;
+			padding-left: 20px;
+			margin-bottom: 10px;
+		}
+		.think{
+			@include span-columns(5);
+			@media screen and (max-width: $mobile) {
+			    @include span-columns(12);
+			}
+			img{
+				width: 100%;
+				height: auto;
+				margin-bottom: 20px;
+			}
+		}
+		.do{
+			@include shift(2);
+			@include span-columns(5);
+			@include omega();
+			@media screen and (max-width: $mobile) {
+				@include shift(0);
+			 	@include span-columns(12);   
+			}
+			img{
+				width: 100%;
+				height: auto;
+				margin-bottom: 20px;
+			}
+		}
+		p{
+			padding-left: 20px;
+			line-height: 1;
+		}
+		ul{
+			padding-left: 20px;
+			li{
+				line-height: 1.6;
+			}
+		}
+	}
+}
+
+/*
+==========================================================================
+		HOME: O QUE NOS MOVE
+========================================================================== 
+*/
+
+.section-nosmove{
+	background: #fff url('../img/fundo-mao-3.png') center center no-repeat;
+	background-size: 1920px auto;
+	//height: 80%;
+	background-attachment: fixed;
+	@media screen and (max-width: $mobile) {
+		background-size: cover;
+	}
+	.container{
+		@include outer-container;
+		padding-top: 60px;
+		padding-bottom: 60px;
+		.nosmove{
+			@include span-columns(7);
+			@media screen and (max-width: $mobile) {
+			 	@include span-columns(12);  
+			}
+			h2{
+				font-weight: bold;
+				font-size: 42px;
+				color: $azul;
+				margin-bottom: 20px;
+				text-transform: uppercase;
+				line-height: 1.3;
+				font-family: 'politicaregular';
+				@media screen and (max-width: $mobile) {
+			    	font-size: 32px;
+				}
+			}
+			h3{
+				font-size: 22px;
+				font-weight: bold;
+				margin-bottom: 10px;
+			}
+			ul{
+				list-style-type: disc;
+				list-style-position: inside;
+				li{
+					line-height: 1.6;
+				}
+			}
+			a{
+				color: $azul;
+				font-weight: bold;
+			}
+			p{
+				line-height: 1.6;
+				margin-bottom: 1em;
+			}
+		}
+	}
+}
+
+.section-footer{
+	background-color: #000;
+	.container{
+		@include outer-container;
+		padding-top: 80px;
+		padding-bottom: 80px;
+		color: #fff;
+		
+	}
+	.footer-esq{
+		@include span-columns(9);
+		@media screen and (max-width: $mobile) {
+			@include span-columns(12);	    
+			margin-bottom: 20px;
+		}
+		a{
+			display: inline-block;
+			width: 18%;
+			margin-right: 4%;
+			//width: 23%;
+			height: auto;
+		}
+		img{
+			width: 100%;
+		}
+		small{
+			display: block;
+			margin-top: 3em;
+		}
+	}
+	.footer-dir{
+		@include span-columns(3);
+		@include omega();
+		@media screen and (max-width: $mobile) {
+			@include span-columns(12);	    
+		}
+		h4{
+			font-weight: 900;
+			color: $rosa;
+			margin-bottom: 1em;
+			text-transform: uppercase;
+		}
+		p{
+			
+		}
+		.lista-social{
+			text-align: left;
+			margin-bottom: 1em;
+			li{
+				display: inline-block;
+				margin-right: 20px;
+				font-size: 30px;
+				line-height: 36px;
+				color: $azul;
+			}
+		}
+	}
+}
+
+
+/******************************
+		PARCEIROS
+******************************/
+
+.section-parceiros-titulo{
+	background-color: $azulclaro;
+	.container{
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+	h3{
+		color: #FFF;
+		font-weight: bold;
+		margin-bottom: 1em;
+	}
+	p{
+		color: #000;
+		margin-bottom: 1em;
+		width: 70%;
+	}
+}
+
+.section-parceiros{
+	.container{
+		padding-top: 40px;
+	}
+	h3{
+		color: $azulclaro;
+		font-weight: bold;
+	}
+	p{
+		margin-bottom: 1em;
+	}
+}
+
+.parceiros-items{
+	text-align: left;
+	margin-bottom: 40px;
+	.parceiro-item{
+		display: inline-block;
+		margin-right: 20px;
+		height: 120px;
+		width: auto;
+		img{
+			height: 100%;
+			width: auto;
+		}
+	}
+}
+
+/******************************
+		ATUAÇÃO
+******************************/
+
+
+.section-atuacao{
+	background-color: $laranja;
+	color: #000;
+	.container{
+		padding-top: 80px;
+		padding-bottom: 80px;
+		@include outer-container;
+		h1{
+			font-size: 80px;
+			margin-bottom: 40px;
+			color: #fff;
+			text-transform: uppercase;
+			font-family: 'politicaregular';
+			@media screen and (max-width: $mobile) {
+			 	font-size: 42px;   
+			}
+		}
+	}
+	.atuacao-texto{		
+		@include span-columns(9);
+		@include omega();
+		margin-bottom: 20px;
+		@media screen and (max-width: $mobile) {
+			@include span-columns(12);    
+		}
+		h2{
+			
+		}
+		p{
+			max-width: 80%;
+			margin-bottom: 1em;
+			@media screen and (max-width: $mobile) {
+			 	max-width: 100%;   
+			}
+		}
+		small{
+			display: block;
+			margin-top: 40px;
+			font-weight: bold;
+		}
+
+	}
+	.atuacao-logo{
+		@include span-columns(2);
+		img{
+			width: 100%;
+			height: auto;
+		}
+		@media screen and (max-width: $mobile) {
+			display: none;
+		}
+	}
+	.atuacao-icones{
+		text-align: center;
+		.atuacao-icone{
+			display: inline-block;
+			vertical-align: top;
+			width: 30%;
+			height: auto;
+			margin-bottom: 2em;
+			padding: 0 15px;
+			margin-right: 2em;
+			@media screen and (max-width: $mobile) {
+			 	width: 69%;   
+			}
+			img{
+				display: block;
+				text-align: center;
+				margin: 0 auto;
+			}
+			p{
+				text-align: left;
+			}
+			span{
+				font-weight: bold;
+			}
+		}
+	}
+	.atuacao-frase{
+		@include span-columns(10);
+		//@include shift(1);
+		strong{
+			font-weight: bold;
+			font-size: 1.6em;
+		}
+	}
+}
+
+.section-concursos{
+	min-height: 70%;
+	position: relative;
+	overflow: hidden;
+	background-color: $laranja;
+	@media screen and (max-width: $mobile) {
+		min-height: 100%;
+	}
+	.container{
+		padding-bottom: 40px;
+		padding-top: 40px;
+		.conc-titulo{
+			font-size: 18px;
+			line-height: 3;
+		}
+	}
+	.sep-titulo{
+		font-size: 56px;
+		font-family: 'politicaregular';
+		line-height: 1.4;
+		margin-bottom: 20px;
+	}
+	.bloco-concurso{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background-color: $laranjaescuro;
+		@include transition(all 1.2s);
+		@include transform(translate3d(0,0,0));
+		-webkit-box-shadow: 0px -4px 10px 0px rgba(0,0,0,0.4);
+		-moz-box-shadow: 0px -4px 10px 0px rgba(0,0,0,0.4);
+		box-shadow: 0px -4px 10px 0px rgba(0,0,0,0.4);
+		@media screen and (max-width: $mobile) {
+			overflow-x: hidden;
+			overflow-y: auto;	    
+		}
+		&.ativo{
+			top: 0;
+		}
+		.container{
+			width: 98%;
+			max-width: $maxwidth;
+			margin: 0 auto;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			position: relative;
+			.close-concurso{
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				font-size: 24px;
+				color: #fff;
+			}
+			.bloco-concurso-esq{
+				@include span-columns(5);
+				@media screen and (max-width: $mobile) {
+			    	@include span-columns(12);
+				}
+				img{
+					width: 100%;
+					margin-bottom: 20px;
+				}
+				.concurso-links{
+					a{
+						display: block;
+						color: #fff;
+						line-height: 2;
+						font-weight: bold;
+						position: relative;
+						padding-left: 35px;
+						&:before{
+							content:"";
+							display: block;
+							width: 26px;
+							height: 26px;
+							position: absolute;
+							top: 0;
+							left: 0;
+							background: transparent url('../img/mais-white.png') center center no-repeat;
+							background-size: contain;
+						}
+					}
+				}
+			}
+			.bloco-concurso-dir{
+				@include shift(1);
+				@include span-columns(6);
+				font-size: 16px;
+				@media screen and (max-width: $mobile) {
+			    	@include span-columns(12);
+			    	@include shift(0);
+				}
+				h2{
+					font-weight: bold;
+					line-height: 2;
+					margin-bottom: 1em;
+				}
+				p{
+					line-height: 1.5;
+					margin-bottom: 1em;
+				}
+				strong{
+					font-weight: bold;
+				}
+			}
+		}
+	}
+}
+
+.lista-concursos{
+	@include outer-container;
+	.item-lista-concurso{
+		display: block;
+		@include span-columns(3);
+		@include omega(4n);
+		height: 0;
+		padding-bottom: 23.23176%;
+		background-position: center center;
+		background-size: auto 100%;
+		margin-bottom: 20px;
+		@media screen and (max-width: $mobile) {
+			@include span-columns(6);
+			@include omega(2n);
+			padding-bottom: 47%;
+		}
+	}
+}
+
+.lista-portfolio{
+	@include outer-container;
+	.item-lista-portfolio{
+		display: block;
+		@include span-columns(3);
+		@include omega(4n);
+		height: 0;
+		padding-bottom: 23.23176%;
+		background-position: center center;
+		background-size: auto 100%;
+		margin-bottom: 20px;
+		@media screen and (max-width: $mobile) {
+			@include span-columns(6);
+			@include omega(2n);
+			padding-bottom: 47%;
+		}
+	}
+}
+
+.section-iniciativas{
+	background-color: $verde;
+	color: #000;
+	.container{
+		padding-top: 80px;
+		padding-bottom: 80px;
+		@include outer-container;
+		font-size: 16px;
+		h1{
+			font-size: 80px;
+			margin-bottom: 40px;
+			color: #fff;
+			text-transform: uppercase;
+			font-family: 'politicaregular';
+			@media screen and (max-width: $mobile) {
+				font-size: 42px;
+			}
+		}
+		p{
+			margin-bottom: 1em;
+		}
+		ul{
+			list-style-type: disc;
+			list-style-position: outside;
+			li{
+				margin-left: 15px;
+			}
+		}
+	}
+	.atuacao-logo{
+		@include span-columns(2);
+		img{
+			width: 100%;
+			height: auto;
+		}
+	}
+	.atuacao-texto{
+		@include shift(1);
+		@include span-columns(9);
+		@include omega();
+		margin-bottom: 20px;
+		h2{
+			font-size: 60px;
+			margin-bottom: 20px;
+			color: #000;
+			text-transform: uppercase;
+			font-family: 'politicaregular';
+		}
+	}
+	.iniciativa-links{
+		color: #fff;
+		font-weight: bold;
+		font-size: 16px;
+		.link-meps{
+			margin-top: 20px;
+			display: inline-block;
+			font-size: 40px;
+			font-weight: bold;
+			text-transform: uppercase;
+			padding: 5px 15px;
+			border: 3px solid $azulclaro;
+			color: #000;
+		}
+	}
+}
+
+.section-lista-iniciativas{
+	@extend .section-concursos;
+	background-color: $verde;
+	min-height: auto;
+}
+
+.multi-section{
+	.single-iniciativa{
+		display: none;
+		&.ativo{
+			display: block;
+		}	
+	}
+}
+
+.section-inic-texto{
+	background-color: #ededed;
+	.container{
+		padding-top: 40px;
+		padding-bottom: 40px;
+		@include outer-container;
+	}
+	h3{
+		font-size: 16px;
+		margin-bottom: 1em;
+		font-weight: bold;
+		color: #000;
+	}
+	p{
+		font-size: 16px;
+		margin-bottom: 1em;
+		line-height: 1.5;
+	}
+	strong{
+		font-weight: bold;
+	}
+	em{
+		font-style: italic;
+	}
+}
+
+.section-inic-link{
+	.container{
+		padding-top: 0px;
+		padding-bottom: 0px;
+		@include outer-container;
+	}
+	a{
+		width: 100%;
+		display: block;
+		img{
+			max-width: 100%;
+			height: auto;
+		}
+	}
+	&.link-cheia{
+		margin-bottom: -5px;
+		a{
+			width: 100%;
+			display: block;
+			img{
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+}
+
+
+/******************************
+		O INSTITUTO
+******************************/
+
+.section-instituto-1{
+	background: $azul url('../img/fundo-mao-2.png') center center no-repeat;
+	background-size: 1920px auto;
+	.container{
+		padding-bottom: 40px;
+		padding-top: 40px;
+		@include outer-container;
+		.texto{
+			color: #fff;
+			@include span-columns(6);
+			font-size: 16px;
+			line-height: 1.5;
+			@media screen and (max-width: $mobile) {
+				@include span-columns(12);
+			}
+			h2{
+				font-size: 1.3em;
+				margin-bottom: 1em;
+				font-weight: bold;
+			}
+			p{
+				margin-bottom: 1em;
+			}
+			a{
+				font-weight: bold;
+				color: $rosa;
+			}
+		}
+	}
+}
+
+.section-instituto-2{
+	.container{
+		padding-bottom: 40px;
+		padding-top: 40px;
+		@include outer-container;
+		.texto{
+			line-height: 1.5;
+			h2{
+				font-size: 1.3em;
+				margin-bottom: 1em;
+				font-weight: bold;
+				color: $azulclaro;
+			}
+			p{
+				margin-bottom: 1em;
+				font-size: 13px;
+			}
+			ul{
+				list-style-type: disc;
+				list-style-position: inside;
+				font-size: 13px;
+				li{
+					padding-left: 20px;
+				}
+			}
+		}
+		.bloco-esq{
+			@include span-columns(5);
+			@media screen and (max-width: $mobile) {
+				@include span-columns(12);
+				margin-bottom: 20px;
+			}
+		}
+		.bloco-dir{
+			@include span-columns(6);
+			@include shift(1);
+			@include omega();
+			@media screen and (max-width: $mobile) {
+				@include span-columns(12);
+				@include shift(0);
+			}
+		}
+	}
+}
+
+.section-instituto-3{
+	.container{
+		padding-bottom: 40px;
+		padding-top: 0px;
+		@include outer-container;
+		.texto{
+			line-height: 1.5;
+			h2{
+				font-size: 1.3em;
+				margin-bottom: 1em;
+				font-weight: bold;
+				color: $azulclaro;
+			}
+			p{
+				margin-bottom: 1em;
+				font-size: 13px;
+			}
+			ul{
+				list-style-type: disc;
+				list-style-position: inside;
+				font-size: 13px;
+				li{
+					padding-left: 20px;
+				}
+			}
+			img{
+				width: 100%;
+			}
+		}
+		.bloco-esq{
+			@include span-columns(5);
+			@media screen and (max-width: $mobile) {
+				@include span-columns(12);
+				margin-bottom: 20px;
+			}
+		}
+		.bloco-dir{
+			@include span-columns(6);
+			@include shift(1);
+			@include omega();
+			@media screen and (max-width: $mobile) {
+				@include span-columns(12);
+				@include shift(0);
+			}
+		}
+	}
+}
+
+.section-instituto-principios{
+	background-color: $azul;
+	.container{
+		padding-bottom: 40px;
+		padding-top: 40px;
+		@include outer-container;
+		color: #000;
+		.texto{
+			line-height: 1.5;
+			margin-bottom: 40px;
+			@include span-columns(7);
+			h2{
+				font-size: 1.3em;
+				margin-bottom: 1em;
+				font-weight: bold;
+				color: #fff;
+			}
+			p{
+				margin-bottom: 1em;
+			}
+			ul{
+				list-style-type: disc;
+				list-style-position: inside;
+			}
+			img{
+				width: 100%;
+			}
+		}
+		.principios-itens{
+			@include outer-container;
+			@include span-columns(12);
+			text-align: justify;
+			font-size: 13px;
+			.principios-item{
+				display: inline-block;
+				text-align: left;
+				width: 19%;
+				height: auto;
+				vertical-align: top;
+				margin-bottom: 20px;
+				@media screen and (max-width: $mobile) {
+					width: 48%;
+				}
+				img{
+					display: block;
+					margin-bottom: 20px;
+				}
+				h2{
+					font-size: 1.5em;
+					font-weight: bold;
+					color: $laranja;
+				}
+			}
+			.ghost{
+				display: inline-block;
+				vertical-align: top;
+				width: 19%;
+			}
+			.break{
+				display: inline-block;
+				vertical-align: top;
+				width: 100%;
+				height: 0;
+			}
+		}
+	}
+}
+
+.section-instituto-organograma{
+	background-color: $azul;
+	.container{
+		padding-bottom: 40px;
+		padding-top: 40px;
+		@include outer-container;
+		.texto{
+			line-height: 1.5;
+			h2{
+				font-size: 1.3em;
+				margin-bottom: 1em;
+				font-weight: bold;
+				color: #fff;
+			}
+			p{
+				margin-bottom: 1em;
+			}
+			ul{
+				list-style-type: disc;
+				list-style-position: inside;
+			}
+			img{
+				width: 100%;
+			}
+		}
+	}
+}
+
+.section-instituto-relatorios{
+	//background-color: $iconetopo;
+	.container{
+		padding-bottom: 40px;
+		padding-top: 40px;
+		@include outer-container;
+		.texto{
+			line-height: 1.5;
+			h2{
+				font-size: 1.3em;
+				margin-bottom: 1em;
+				font-weight: bold;
+				color: $azul;
+			}
+			h3{
+				font-size: 1.3em;
+				margin-bottom: 1em;
+				font-weight: bold;
+				color: $azulclaro;
+			}
+			a{
+				display: block;
+				line-height: 40px;
+				color: #000;
+				position: relative;
+				width: 80px;
+				&:before{
+					content:"";
+					position: absolute;
+					right: -40px;
+					top: 0;
+					width: 40px;
+					height: 40px;
+					background: transparent url('../img/arquivo.png') center center no-repeat;
+					background-size: 80% auto;
+				}
+
+			}
+		}
+	}
+}
+
+.section-instituto-equipe{
+	.container{
+		padding-bottom: 40px;
+		padding-top: 40px;
+		@include outer-container;
+		.texto{
+			line-height: 1.5;
+			h2{
+				font-size: 1.3em;
+				margin-bottom: 1em;
+				font-weight: bold;
+				color: $azul;
+			}
+			& > p{
+				margin-bottom: 40px;
+			}
+		}
+		.membros-equipe{
+			width: 100%;
+			text-align: justify;
+			.membro-equipe{
+				width: 48%;
+				height: auto;
+				display: inline-block;
+				vertical-align: top;
+				margin-bottom: 20px;
+				@media screen and (max-width: $mobile) {
+					width: 100%;
+				}
+				img{
+					float: left;
+					width: 140px;
+					height: auto;
+					@media screen and (max-width: $mobile) {
+						width: 60px;
+					}
+				}
+				.bio{
+					margin-left: 160px;
+					@media screen and (max-width: $mobile) {
+						margin-left: 70px;
+					}
+					h3{
+						font-weight: bold;
+						font-size: 1.3em;
+						margin-bottom: 10px;
+						text-align: left;
+					}
+					p{
+						font-size: 13px;
+						width: 80%;
+						text-align: left;
+					}
+				}
+			}
+			.break{
+				width: 100%;
+				height: 0;
+				display: inline-block;
+			}
+		}
+	}
+}
+
+.section-impressos{
+	background-color: #fff !important;
+	.sep-titulo{
+		font-size: 80px;
+		line-height: 1.2;
+		@media screen and (max-width: $mobile) {
+			font-size: 42px;
+		}
+	}
+	.conc-titulo{
+		display: block;
+		margin-bottom: 1em;
+	}
+
+	.lista-impressos{
+		@include outer-container;
+		.item-impressos{
+			display: block;
+			@include span-columns(6);
+			@include omega(2n);
+			height: 140px;
+			background-size: cover;
+			background-position: center center;
+			margin-bottom: 20px;
+			@media screen and (max-width: $mobile) {
+				@include span-columns(12);
+				@include shift(0);
+				background-size: cover;
+				height: 100px;
+				background-repeat: none;
+			}
+		}
+	}
+}
+
+.bync{
+	width: 100px;
+    display: block;
+    margin-top: 20px;
+	img{
+		width: 100%;
+		height: auto;
+	}
+}
+
+/*
+==========================================================================
+		BUSCA
+========================================================================== 
+*/
+
+.titulo-busca{
+	font-size: 42px;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+	font-family: 'politicaregular';
+}
+
+.item-busca{
+	margin-bottom: 20px;
+	span{
+		font-style: italic;
+	}
+}
+
+.resultado-busca{
+	color: $azul;
+	font-weight: bold;
+	font-size: 24px;
+}
