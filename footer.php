@@ -1,8 +1,8 @@
-		
+
 		<div class="section section-footer">
 			<div class="container">
 				<div class="footer-esq">
-					<a href="">
+					<a href="https://clube.cidadedemocratica.org.br/">
 						<img src="<?php echo get_template_directory_uri(); ?>/img/logo-democracia.png" alt="">
 					</a>
 					<a href="">
@@ -33,6 +33,6 @@
 
 		<!-- Carrega depois dos scripts externos -->
         <?php wp_footer(); ?>
-	
+
 	</body>
 </html>

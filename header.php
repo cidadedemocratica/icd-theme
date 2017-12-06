@@ -18,7 +18,7 @@
 
 		<link rel="stylesheet" href="<?php themeurl('/css/owl.carousel.css'); ?>">
 		<link rel="stylesheet" href="<?php themeurl('/css/owl.theme.css'); ?>">
-		
+
 		<link rel="stylesheet" href="<?php themeurl('/css/style.css'); ?>?v<?php echo rand(0, 10000); ?>">
 
 		<?php wp_head(); ?>
@@ -53,7 +53,7 @@
 			<div class="searchform">
 				<?php get_search_form(); ?>
 				<!-- <input type="text" placeholder="buscar">
-				<i class="fa fa-search"></i>	 -->			
+				<i class="fa fa-search"></i>	 -->
 			</div>
 		</div>
 	</div>
@@ -85,7 +85,10 @@
 
 			<!-- <li><a href="http://blog.cidadedemocratica.org.br/" target="_blank">Arquivo</a></li> -->
 
- 					<li><a href="<?php echo home_url(); ?>/parceiros/">Parceiros</a></li>
+ 			<!--		<li><a href="<?php echo home_url(); ?>/parceiros/">Parceiros</a></li> -->
+
+					<li><a href="https://clube.cidadedemocratica.org.br/" target="_blank">Clube</a></li>
+
 
 <!-- PRIMEIRA TENTATIVA DE IMPLEMENTACAO DO BOTAO DOAR - AGORA E UMA PAGINA -->
                 <!--    <li>
